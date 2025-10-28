@@ -1,0 +1,19 @@
+# Dépendances Python pour le projet Big Data
+# Installation: pip install -r requirements.txt
+
+# Kafka
+kafka-python==2.0.2
+
+# Data Processing
+pandas==2.0.3
+numpy==1.24.3
+
+# Cassandra
+cassandra-driver==3.28.0
+
+# Spark (installé dans le conteneur Spark)
+# pyspark==3.3.0  # Commenté car déjà dans l'image Docker
+
+# Utilities
+python-dateutil==2.8.2
+pytz==2023.3
