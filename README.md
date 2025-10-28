@@ -530,10 +530,4 @@ Ce projet est à des fins éducatives.
 
 ---
 
-## 👨‍💻 Auteur
-
-**Mayssen** - Mini-Projet Big Data avec Architecture Lambda
-
----
-
 **Bon apprentissage! 🚀**
