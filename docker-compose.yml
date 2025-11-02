@@ -125,6 +125,8 @@ services:
   python-env:
     image: python:3.9
     container_name: python-env
+    ports:
+      - "8501:8501"  # Port Streamlit Dashboard
     volumes:
       - ./data:/data
       - ./scripts:/scripts
