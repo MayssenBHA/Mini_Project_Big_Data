@@ -1,7 +1,15 @@
 # 🚀 Projet Big Data - Prédiction des Retards de Vols
-## Architecture Lambda avec Docker
 
-Ce projet implémente une **Architecture Lambda** complète pour l'analyse et la prédiction des retards de vols en utilisant les technologies Big Data modernes, le tout orchestré avec Docker.
+## Architecture Big Data Complète avec Docker
+
+[![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![Apache Spark](https://img.shields.io/badge/Apache%20Spark-E25A1C?style=for-the-badge&logo=apachespark&logoColor=white)](https://spark.apache.org/)
+[![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-231F20?style=for-the-badge&logo=apachekafka&logoColor=white)](https://kafka.apache.org/)
+[![Cassandra](https://img.shields.io/badge/Cassandra-1287B1?style=for-the-badge&logo=apachecassandra&logoColor=white)](https://cassandra.apache.org/)
+[![Hadoop](https://img.shields.io/badge/Hadoop-66CCFF?style=for-the-badge&logo=apachehadoop&logoColor=black)](https://hadoop.apache.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
+
+Ce projet implémente une **Architecture Lambda** complète et professionnelle pour l'analyse en temps réel et historique des retards de vols en utilisant l'écosystème Big Data moderne, orchestré avec Docker Compose.
 
 ---
 
@@ -1537,7 +1545,17 @@ Ouvrez une **Issue** avec:
 
 ## 📝 Licence
 
-Ce projet est à des fins éducatives.
+Ce projet est à des fins **éducatives** uniquement.
+
+**Restrictions:**
+- ⚠️ Ne pas utiliser en production sans revue de sécurité
+- ⚠️ Dataset Kaggle soumis à leur licence
+- ⚠️ Images Docker soumises à leurs licences respectives
+
+**Autorisations:**
+- ✅ Usage académique et apprentissage
+- ✅ Modification et amélioration
+- ✅ Partage avec attribution
 
 ---
 
@@ -1569,4 +1587,5 @@ Ce projet est à des fins éducatives.
 
 </div>
 
->>>>>>> 7e01abe (update batch , spped and serving layers)
+
+**Bon apprentissage! 🚀**
