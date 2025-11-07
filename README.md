@@ -10,6 +10,11 @@
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](https://streamlit.io/)
 
 Ce projet implémente une **Architecture Lambda** complète et professionnelle pour l'analyse en temps réel et historique des retards de vols en utilisant l'écosystème Big Data moderne, orchestré avec Docker Compose.
+## 🎥 Video Demo
+
+Watch the project in action:
+
+👉 [Click here to watch the demo](https://drive.google.com/file/d/1VvlvnRMhPM3TI6LzRaqw2NRG3y0Q5yaq/view?usp=sharing)
 
 ---
 
