@@ -58,19 +58,43 @@ st.markdown("""
 
 @st.cache_data(ttl=300)  # Cache pour 5 minutes
 def load_batch_data():
-    """Charge les données du Batch Layer (depuis logs précalculés)"""
-    # Données historiques top 20 aéroports avec retards
-    data = {
-        'origin': ['YNG', 'PPG', 'MMH', 'OTH', 'HYA', 'SLN', 'OWB', 'SCK', 'LWB', 'HGR',
-                   'CMX', 'TTN', 'BKG', 'ORH', 'ACK', 'MVY', 'BLV', 'PSM', 'LCK', 'SWF'],
-        'avg_delay': [75.0, 47.9, 35.6, 26.0, 26.0, 25.3, 24.9, 23.0, 22.6, 22.5,
-                      21.0, 20.4, 20.1, 19.1, 18.9, 18.8, 18.7, 18.1, 17.7, 17.4],
-        'avg_dep_delay': [63.0, 45.4, 33.5, 28.7, 34.4, 21.1, 27.6, 24.3, 24.3, 25.1,
-                          22.6, 25.2, 17.9, 21.6, 23.2, 20.0, 21.2, 24.2, 19.8, 19.8]
-    }
-    df = pd.DataFrame(data)
-    df['source'] = 'Batch Layer'
-    return df
+       """Charge les données du Batch Layer depuis Hive"""
+    try:
+        from pyspark.sql import SparkSession
+        
+        # Créer une session Spark avec support Hive
+        spark = SparkSession.builder \
+            .appName("DashboardBatchQuery") \
+            .config("spark.sql.catalogImplementation", "hive") \
+            .config("spark.hadoop.fs.defaultFS", "hdfs://hadoop-master:9000") \
+            .config("spark.sql.warehouse.dir", "hdfs://hadoop-master:9000/user/hive/warehouse") \
+            .enableHiveSupport() \
+            .getOrCreate()
+        
+        spark.sparkContext.setLogLevel("ERROR")
+        
+        # Requête Hive pour récupérer les données batch
+        query = """
+            SELECT 
+                origin,
+                avg_delay,
+                avg_dep_delay,
+                total_flights,
+                delayed_flights,
+                avg_distance,
+                avg_air_time,
+                delay_rate
+            FROM batch_views.airport_delay_stats
+            ORDER BY avg_delay DESC
+        """
+        
+        df_spark = spark.sql(query)
+        df = df_spark.toPandas()
+        
+        spark.stop()
+        
+        df['source'] = 'Batch Layer'
+        return df
 
 @st.cache_data(ttl=30)  # Cache pour 30 secondes (données temps réel)
 def load_speed_data():
